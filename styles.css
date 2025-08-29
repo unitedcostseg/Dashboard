@@ -148,3 +148,16 @@ body{
   .app-shell{ grid-template-columns: 1fr; }
   .sidebar{ display:none; }
 }
+
+/* === Topbar logo for mobile === */
+.topbar-logo {
+  height: 28px;   /* size of logo inside topbar */
+  width: auto;
+  margin-right: var(--space-4);
+  display: none;  /* hidden on desktop */
+}
+
+@media (max-width: 720px) {
+  .topbar-logo {
+    display: inline-block;  /* show logo when sidebar is hidden */
+  }
