@@ -15,6 +15,7 @@
   --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
   --radius: 12px;
   --radius-sm: 10px;
+  --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
@@ -52,7 +53,7 @@ body{
   border-right:1px solid var(--stroke);
 }
 .brand-logo {
-  height: 40px;   /* adjust as needed */
+  height: 30px;  
   width: auto;
   display: block;
 }
@@ -94,12 +95,12 @@ body{
 .help:hover{ color: var(--ink) }
 
 /* Main column */
-.main{ display:flex; flex-direction:column; padding: var(--space-6) }
+.main{ display:flex; flex-direction:column; padding: var(--space-4) }
 
-/* Top bar (80px tall feel) */
+/* Top bar (40px tall feel) */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
-  height:60px;
+  height:40px;
   background:var(--panel);
   border:1px solid var(--stroke);
   border-radius: var(--radius);
@@ -124,7 +125,7 @@ body{
 
 /* Main content card */
 .panel{
-  margin-top: var(--space-2);
+  margin-top: var(--space-1);
   background: var(--panel);
   border:1px solid var(--stroke);
   border-radius: var(--radius);
