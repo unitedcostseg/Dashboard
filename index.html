@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand">RE Cost Seg</div>
+      <nav class="nav">
+        <button class="nav__item is-active" data-section="Home">Home</button>
+        <button class="nav__item" data-section="Estimates">Estimates</button>
+        <button class="nav__item" data-section="Projects">Projects</button>
+        <button class="nav__item" data-section="Delivered">Delivered</button>
+        <button class="nav__item" data-section="Tools">Tools</button>
+        <button class="nav__item" data-section="Settings">Settings</button>
+      </nav>
+      <div class="sidebar__footer">
+        <a class="help" href="#" aria-label="Documentation">Documentation</a>
+      </div>
+    </aside>
+
+    <!-- Main column -->
+    <main class="main">
+      <!-- Banner -->
+      <header class="topbar" role="banner">
+        <h1 id="sectionTitle" class="topbar__title">Home</h1>
+        <div class="topbar__actions">
+          <button class="icon-btn" aria-label="Notifications">
+            <!-- bell icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6.36-6a1 1 0 0 1-.86.5H6.5a1 1 0 0 1-.86-1.5l1.36-2.27V10a5 5 0 0 1 4-4.9V4a1 1 0 0 1 2 0v1.1A5 5 0 0 1 17 10v2.73l1.36 2.27a1 1 0 0 1 0 1z"/>
+            </svg>
+          </button>
+          <button class="link-btn" id="logoutBtn">Logout</button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="panel" id="contentArea" aria-live="polite">
+        <div class="empty">
+          <h2 class="empty__title">Welcome</h2>
+          <p class="empty__text">Choose a section on the left to get started.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
