@@ -95,12 +95,12 @@ body{
 .help:hover{ color: var(--ink) }
 
 /* Main column */
-.main{ display:flex; flex-direction:column; padding: var(--space-4) }
+.main{ display:flex; flex-direction:column; padding: var(--space-6) }
 
 /* Top bar (40px tall feel) */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
-  height:40px;
+  height:50px;
   background:var(--panel);
   border:1px solid var(--stroke);
   border-radius: var(--radius);
