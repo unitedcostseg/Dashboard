@@ -1,69 +1,80 @@
-// Highlight nav items
-document.querySelectorAll('.nav__item').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.nav__item').forEach(i=>i.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    document.getElementById('sectionTitle').textContent = btn.textContent;
-  });
+// ----- Utilities -----
+const $ = (sel, ctx=document) => ctx.querySelector(sel);
+const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+
+function setActiveSection(label){
+  // Title
+  $('#sectionTitle').textContent = label;
+
+  // Sidebar highlight (if visible)
+  $$('.nav__item').forEach(i => i.classList.toggle('is-active', i.textContent.trim() === label));
+
+  // Example content swap (simple placeholder)
+  const panel = $('#contentPanel');
+  panel.innerHTML = `
+    <div class="empty">
+      <p class="empty__title">${label}</p>
+      <p class="empty__text">This is the ${label.toLowerCase()} area. Populate with cards, tables, or charts.</p>
+    </div>
+  `;
+}
+
+// ----- Sidebar clicks (desktop) -----
+$$('.nav__item').forEach(btn => {
+  btn.addEventListener('click', () => setActiveSection(btn.getAttribute('data-nav') || btn.textContent.trim()));
 });
 
-// Toggle hamburger menu
-const hamburger = document.getElementById('hamburgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
+// ----- Hamburger & Mobile Menu -----
+const hamburger = $('#hamburgerBtn');
+const mobileMenu = $('#mobileMenu');
 
+function openMenu(){
+  hamburger.setAttribute('aria-expanded', 'true');
+  mobileMenu.classList.add('is-open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+}
 function closeMenu(){
-  hamburger?.setAttribute('aria-expanded', 'false');
-  mobileMenu?.classList.remove('is-open');
-  mobileMenu?.setAttribute('aria-hidden','true');
+  hamburger.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.remove('is-open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
 }
 
-if (hamburger && mobileMenu) {
+if (hamburger && mobileMenu){
   hamburger.addEventListener('click', (e) => {
     e.stopPropagation();
-    const open = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', String(!open));
-    mobileMenu.classList.toggle('is-open', !open);
-    mobileMenu.setAttribute('aria-hidden', String(open));
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
   });
 
+  // close when clicking outside
   document.addEventListener('click', (e) => {
     if (!mobileMenu.classList.contains('is-open')) return;
-    if (!mobileMenu.contains(e.target) && e.target !== hamburger) {
-      closeMenu();
-    }
+    if (!mobileMenu.contains(e.target) && e.target !== hamburger) closeMenu();
+  });
+
+  // escape to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu();
   });
 }
 
-// Clicks on menu items -> activate same section as sidebar
-document.querySelectorAll('.mobile-menu [data-nav]').forEach(btn=>{
+// Mobile nav items
+$$('.mobile-menu [data-nav]').forEach(btn => {
   btn.addEventListener('click', () => {
-    const label = btn.getAttribute('data-nav');
-
-    // Update title
-    document.getElementById('sectionTitle').textContent = label;
-
-    // Sync highlight with sidebar (if present)
-    const sideItems = Array.from(document.querySelectorAll('.nav__item'));
-    sideItems.forEach(i => i.classList.toggle('is-active', i.textContent.trim() === label));
-
+    setActiveSection(btn.getAttribute('data-nav'));
     closeMenu();
   });
 });
 
-// Optional actions
-document.getElementById('mobileLogout')?.addEventListener('click', ()=>{
+// Mobile actions
+$('#mobileLogout')?.addEventListener('click', () => {
   closeMenu();
-  alert('Logging out…'); // swap with real logic
+  alert('Logging out…'); // replace with your logout logic
 });
-document.getElementById('mobileNotify')?.addEventListener('click', ()=>{
+$('#mobileNotify')?.addEventListener('click', () => {
   closeMenu();
-  alert('Notifications…'); // swap with real logic
+  alert('Notifications…'); // replace with your notifications logic
 });
 
-}
-
-// Example action handlers
-document.getElementById('logoutBtn')?.addEventListener('click', ()=>alert('Logging out…'));
-document.getElementById('notifyBtn')?.addEventListener('click', ()=>alert('Notifications…'));
-document.getElementById('mobileLogout')?.addEventListener('click', ()=>alert('Logging out…'));
-document.getElementById('mobileNotify')?.addEventListener('click', ()=>alert('Notifications…'));
+// Init
+setActiveSection('Home');
