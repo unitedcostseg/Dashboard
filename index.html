@@ -32,31 +32,40 @@
     <!-- Main column -->
     <main class="main">
       <header class="topbar">
-        <img src="logo.png" alt="Modern CFO" class="topbar-logo">
-        <!-- Hamburger is always shown; we put ALL actions inside the dropdown -->
-        <button class="hamburger" id="hamburgerBtn"
-                aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span></span><span></span><span></span>
-        </button>
-        <h1 class="topbar__title" id="sectionTitle">Home</h1>
-        <!-- Mobile dropdown -->
-        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
-          <div class="menu-group" aria-label="Navigate">
-            <button class="menu-item" role="menuitem" data-nav="Home">Home</button>
-            <button class="menu-item" role="menuitem" data-nav="Estimates">Estimates</button>
-            <button class="menu-item" role="menuitem" data-nav="Projects">Projects</button>
-            <button class="menu-item" role="menuitem" data-nav="Delivered">Delivered</button>
-            <button class="menu-item" role="menuitem" data-nav="Tools">Tools</button>
-            <button class="menu-item" role="menuitem" data-nav="Settings">Settings</button>
-          </div>
-          <hr class="menu-sep" />
-          <div class="menu-group" aria-label="Account">
-            <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
-            <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
-          </div>
-        </div>
-      </header>
+  <!-- (optional) logo shown on mobile if you added .topbar-logo -->
+  <img src="logo.png" alt="Modern CFO" class="topbar-logo" />
 
+  <!-- Title -->
+  <h1 class="topbar__title" id="sectionTitle">Home</h1>
+
+  <!-- Desktop actions (shown on desktop only) -->
+  <div class="topbar__actions" id="topbarActions">
+    <button class="icon-btn" id="notifyBtn">Notifications</button>
+    <button class="link-btn" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Hamburger (shown on mobile only) -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile dropdown (unchanged) -->
+  <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+    <div class="menu-group" aria-label="Navigate">
+      <button class="menu-item" role="menuitem" data-nav="Home">Home</button>
+      <button class="menu-item" role="menuitem" data-nav="Estimates">Estimates</button>
+      <button class="menu-item" role="menuitem" data-nav="Projects">Projects</button>
+      <button class="menu-item" role="menuitem" data-nav="Delivered">Delivered</button>
+      <button class="menu-item" role="menuitem" data-nav="Tools">Tools</button>
+      <button class="menu-item" role="menuitem" data-nav="Settings">Settings</button>
+    </div>
+    <hr class="menu-sep" />
+    <div class="menu-group" aria-label="Account">
+      <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
+      <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
+    </div>
+  </div>
+</header>
       <!-- Content card -->
       <section class="panel" id="contentPanel">
         <div class="empty">
