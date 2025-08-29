@@ -99,7 +99,7 @@ body{
 /* Top bar (80px tall feel) */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
-  height:80px;
+  height:60px;
   background:var(--panel);
   border:1px solid var(--stroke);
   border-radius: var(--radius);
@@ -124,7 +124,7 @@ body{
 
 /* Main content card */
 .panel{
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
   background: var(--panel);
   border:1px solid var(--stroke);
   border-radius: var(--radius);
