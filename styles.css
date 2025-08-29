@@ -168,18 +168,23 @@ body{
   align-items: center;
 }
 
+/* Logo aligned left */
 .topbar-logo {
   height: 28px;
-  margin-left: var(--space-2);
+  width: auto;
 }
 
+/* Hamburger dead center */
 .hamburger {
-  justify-self: center; /* centers hamburger in the middle column */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* Title forced to the far right */
 .topbar__title {
-  justify-self: end;    /* push title to the right */
-  font-size: 18px;
+  margin: 0;
   font-weight: 600;
+  font-size: 18px;
+  justify-self: flex-end;
 }
-
