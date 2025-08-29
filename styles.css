@@ -161,3 +161,25 @@ body{
   .topbar-logo {
     display: inline-block;  /* show logo when sidebar is hidden */
   }
+
+  .topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | center | title */
+  align-items: center;
+}
+
+.topbar-logo {
+  height: 28px;
+  margin-left: var(--space-2);
+}
+
+.hamburger {
+  justify-self: center; /* centers hamburger in the middle column */
+}
+
+.topbar__title {
+  justify-self: end;    /* push title to the right */
+  font-size: 18px;
+  font-weight: 600;
+}
+
