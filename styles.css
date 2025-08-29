@@ -73,55 +73,7 @@ body{
 .help{ color:var(--muted); text-decoration:none }
 .help:hover{ color:var(--ink) }
 
-/* Main column */
-.main{ display:flex; flex-direction:column; padding:0 var(--space-6) var(--space-6) }
-
-/* Topbar */
-.topbar{
-  position:relative;
-  display:flex; align-items:center; justify-content:space-between;
-  height:60px; /* updated */
-  background:var(--panel);
-  border:1px solid var(--stroke);
-  border-radius: var(--radius);
-  padding:0 var(--space-6);
-  box-shadow: var(--shadow);
-}
-.topbar__title{ margin:0; font-weight:600; font-size:18px }
-.topbar__actions{ display:flex; align-items:center; gap:10px }
-
-/* Hamburger */
-.hamburger{
-  display:none;
-  width:40px; height:40px;
-  background:transparent; border:1px solid transparent;
-  border-radius:8px; cursor:pointer;
-}
-.hamburger span{
-  display:block; width:20px; height:2px; background:var(--ink);
-  margin:4px 0; border-radius:2px;
-}
-
-/* Mobile menu */
-.mobile-menu{
-  position:absolute; top:100%; right:8px; z-index:5;
-  display:none;
-  min-width:180px;
-  background:var(--panel);
-  border:1px solid var(--stroke);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
-  padding:6px;
-}
-.mobile-menu.is-open{ display:block }
-.menu-item{
-  width:100%; text-align:left;
-  padding:10px 12px;
-  border-radius:8px;
-  background:transparent; border:1px solid transparent;
-  cursor:pointer;
-}
-.menu-item:hover{ background:#f4f2ee }
+V
 
 /* Buttons */
 .icon-btn, .link-btn{
