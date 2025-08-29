@@ -1,4 +1,6 @@
-/* ===== Design Tokens ===== */
+/* ================================
+   Design Tokens
+   ================================ */
 :root{
   --bg:#f7f6f4;
   --panel:#ffffff;
@@ -21,97 +23,145 @@
   --space-7:28px;
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{height:100%}
+/* ================================
+   Base
+   ================================ */
+*{ box-sizing:border-box }
+html,body{ height:100% }
 body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
   font:15px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-/* Shell layout */
+/* ================================
+   App Shell
+   ================================ */
 .app-shell{
   min-height:100dvh;
   display:grid;
-  grid-template-columns:260px 1fr;
+  grid-template-columns:260px 1fr; /* sidebar | main */
 }
 
-/* Sidebar (desktop) */
+/* ================================
+   Sidebar (desktop)
+   ================================ */
 .sidebar{
-  display:flex; flex-direction:column; gap:20px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
   padding: var(--space-6) var(--space-4);
   background:#f2efe9;
   border-right:1px solid var(--stroke);
 }
-.brand-logo{height:30px; width:auto; display:block}
-.nav{display:flex; flex-direction:column; gap:10px}
+
+.brand-logo{ height:30px; width:auto; display:block }
+
+.nav{ display:flex; flex-direction:column; gap:10px }
+
 .nav__item{
-  text-align:left; padding:10px 12px; border-radius:8px;
-  background:transparent; color:var(--ink);
-  border:1px solid transparent; cursor:pointer;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:8px;
+  background:transparent;
+  color:var(--ink);
+  border:1px solid transparent;
+  cursor:pointer;
   transition: background .15s ease, color .15s ease;
 }
 .nav__item:hover{ background:#f4f2ee }
+
 .nav__item.is-active{
-  color:var(--blue); background:var(--blue-10); position:relative;
+  color:var(--blue);
+  background:var(--blue-10);
+  position:relative;
 }
 .nav__item.is-active::before{
-  content:""; position:absolute; inset:0 auto 0 -10px; width:3px; border-radius:2px; background:var(--blue);
+  content:"";
+  position:absolute; inset:0 auto 0 -10px;
+  width:3px; border-radius:2px; background:var(--blue);
 }
+
 .sidebar__footer{ margin-top:auto; padding-top: var(--space-6) }
 .help{ color:var(--muted); text-decoration:none }
 .help:hover{ color:var(--ink) }
 
-/* Main column */
+/* ================================
+   Main Column
+   ================================ */
 .main{
-  display:flex; flex-direction:column;
-  padding: 0 var(--space-6) var(--space-6);   /* top = 0 so topbar is tight */
+  display:flex;
+  flex-direction:column;
+  padding: 0 var(--space-6) var(--space-6); /* top=0 so the topbar is tight */
 }
 
-/* Top bar */
+/* ================================
+   Top Bar (desktop default)
+   ================================ */
 .topbar{
-  position:relative; /* anchor for dropdown */
-  display:flex; align-items:center; justify-content:space-between;
-  height:60px; /* requested height */
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;     /* title left, actions right */
+  height:60px;
   background:var(--panel);
   border:1px solid var(--stroke);
   border-radius:var(--radius);
   padding:0 var(--space-6);
   box-shadow:var(--shadow);
 }
-.topbar__title{margin:0; font-weight:600; font-size:18px}
 
-/* Hamburger: three stacked bars */
-.hamburger{
-  display:inline-flex;
-  flex-direction:column;   /* stack lines vertically */
-  justify-content:center;  /* center vertically */
-  align-items:center;      /* center horizontally */
-  gap:6px;                 /* space between bars */
-  width:44px;
-  height:44px;
-  padding:0;
+/* Title */
+.topbar__title{
+  margin:0;
+  font-weight:600;
+  font-size:18px;
+}
+
+/* Desktop actions (right side) */
+.topbar__actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Buttons */
+.icon-btn, .link-btn{
+  display:inline-flex; align-items:center;
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid transparent;
   background:transparent;
-  border:0;                /* remove any border that may clip lines */
   cursor:pointer;
 }
+.icon-btn:hover{ background:#f4f2ee }
+.link-btn{ color:var(--muted) }
+.link-btn:hover{ color:var(--ink); text-decoration:underline }
 
-.hamburger span{
-  display:block;
-  width:22px;              /* bar length */
-  height:2px;              /* bar thickness */
-  background:var(--ink);
-  border-radius:2px;
+/* Topbar logo (hidden on desktop; shown on mobile) */
+.topbar-logo{
+  display:none;
+  height:28px;
+  width:auto;
+  margin-right:var(--space-4);
 }
 
+/* Hamburger (hidden on desktop) */
+.hamburger{ display:none }
 
-/* Mobile dropdown */
+/* ================================
+   Mobile Dropdown Menu (used on mobile)
+   ================================ */
 .mobile-menu{
-  position:absolute; top:100%; right:8px; z-index:10;
-  display:none; min-width:220px;
+  position:absolute;
+  top:100%;
+  right:8px;
+  z-index:10;
+  display:none;
+  min-width:220px;
   background:var(--panel);
   border:1px solid var(--stroke);
   border-radius:var(--radius-sm);
@@ -119,72 +169,77 @@ body{
   padding:6px;
 }
 .mobile-menu.is-open{ display:block }
+
 .menu-group{ padding:4px }
 .menu-item{
-  width:100%; text-align:left; padding:10px 12px;
-  background:transparent; border:1px solid transparent; border-radius:8px; cursor:pointer;
+  width:100%;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:8px;
+  background:transparent;
+  border:1px solid transparent;
+  cursor:pointer;
 }
 .menu-item:hover{ background:#f4f2ee }
 .menu-sep{ height:1px; border:0; background:var(--stroke); margin:6px }
 
-/* Content card */
+/* ================================
+   Content Panel
+   ================================ */
 .panel{
   margin-top: var(--space-4);
-  background:var(--panel); border:1px solid var(--stroke);
-  border-radius:var(--radius); box-shadow:var(--shadow);
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
   min-height: clamp(360px, 55vh, 720px);
   padding: var(--space-6);
 }
 .empty{ color:var(--muted) }
 .empty__title{ margin:0 0 4px 0; font-size:16px; color:var(--ink); font-weight:600 }
 
-/* Responsive */
+/* ================================
+   Responsive
+   ================================ */
 @media (max-width: 980px){
-  .app-shell{ grid-template-columns: 200px 1fr; }
+  .app-shell{ grid-template-columns:200px 1fr; }
 }
 
 @media (max-width: 720px){
-  /* Hide sidebar completely on mobile; use hamburger menu instead */
-  .app-shell{ grid-template-columns: 1fr; }
+  /* Hide sidebar and go single column */
+  .app-shell{ grid-template-columns:1fr; }
   .sidebar{ display:none; }
-}
 
-/* === Topbar logo for mobile === */
-.topbar-logo {
-  height: 28px;   /* size of logo inside topbar */
-  width: auto;
-  margin-right: var(--space-4);
-  display: none;  /* hidden on desktop */
-}
+  /* Hide desktop actions on mobile */
+  .topbar__actions{ display:none; }
 
-@media (max-width: 720px) {
-  .topbar-logo {
-    display: inline-block;  /* show logo when sidebar is hidden */
+  /* Show logo in topbar on mobile */
+  .topbar-logo{ display:inline-block; }
+
+  /* Show hamburger and center it absolutely */
+  .hamburger{
+    display:inline-flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    width:44px; height:44px;
+    padding:0;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .hamburger span{
+    display:block;
+    width:22px; height:2px;
+    background:var(--ink);
+    border-radius:2px;
   }
 
-  .topbar {
-  display: grid;
-  grid-template-columns: auto 1fr auto; /* logo | center | title */
-  align-items: center;
-}
-
-/* Logo aligned left */
-.topbar-logo {
-  height: 28px;
-  width: auto;
-}
-
-/* Hamburger dead center */
-.hamburger {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Title forced to the far right */
-.topbar__title {
-  margin: 0;
-  font-weight: 600;
-  font-size: 18px;
-  justify-self: flex-end;
+  /* Push title to far right on mobile */
+  .topbar__title{ margin-left:auto; }
 }
