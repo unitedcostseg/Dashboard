@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern CFO Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
-    <!-- Sidebar -->
+    <!-- Sidebar (desktop only) -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="brand.png" alt="Brand Logo" class="brand-logo">
+        <!-- Put logo.png in the project root (or adjust src) -->
+        <img src="logo.png" alt="Modern CFO" class="brand-logo" />
       </div>
-      <nav class="nav">
-        <button class="nav__item is-active">Home</button>
-        <button class="nav__item">Estimates</button>
-        <button class="nav__item">Projects</button>
-        <button class="nav__item">Delivered</button>
-        <button class="nav__item">Tools</button>
-        <button class="nav__item">Settings</button>
+
+      <nav class="nav" id="sideNav">
+        <button class="nav__item is-active" data-nav="Home">Home</button>
+        <button class="nav__item" data-nav="Estimates">Estimates</button>
+        <button class="nav__item" data-nav="Projects">Projects</button>
+        <button class="nav__item" data-nav="Delivered">Delivered</button>
+        <button class="nav__item" data-nav="Tools">Tools</button>
+        <button class="nav__item" data-nav="Settings">Settings</button>
       </nav>
+
       <div class="sidebar__footer">
         <a href="#" class="help">Help</a>
       </div>
@@ -28,40 +31,40 @@
 
     <!-- Main column -->
     <main class="main">
-      <div class="topbar">
-  <h1 class="topbar__title" id="sectionTitle">Home</h1>
+      <header class="topbar">
+        <h1 class="topbar__title" id="sectionTitle">Home</h1>
 
-  <!-- Desktop actions removed; we use only the hamburger -->
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+        <!-- Hamburger is always shown; we put ALL actions inside the dropdown -->
+        <button class="hamburger" id="hamburgerBtn"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
 
-  <!-- Dropdown menu for ALL actions -->
-  <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
-    <div class="menu-group" aria-label="Navigate">
-      <button class="menu-item" role="menuitem" data-nav="Home">Home</button>
-      <button class="menu-item" role="menuitem" data-nav="Estimates">Estimates</button>
-      <button class="menu-item" role="menuitem" data-nav="Projects">Projects</button>
-      <button class="menu-item" role="menuitem" data-nav="Delivered">Delivered</button>
-      <button class="menu-item" role="menuitem" data-nav="Tools">Tools</button>
-      <button class="menu-item" role="menuitem" data-nav="Settings">Settings</button>
-    </div>
-    <hr class="menu-sep">
-    <div class="menu-group" aria-label="Account">
-      <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
-      <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
-    </div>
-  </div>
-</div>
+        <!-- Mobile dropdown -->
+        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+          <div class="menu-group" aria-label="Navigate">
+            <button class="menu-item" role="menuitem" data-nav="Home">Home</button>
+            <button class="menu-item" role="menuitem" data-nav="Estimates">Estimates</button>
+            <button class="menu-item" role="menuitem" data-nav="Projects">Projects</button>
+            <button class="menu-item" role="menuitem" data-nav="Delivered">Delivered</button>
+            <button class="menu-item" role="menuitem" data-nav="Tools">Tools</button>
+            <button class="menu-item" role="menuitem" data-nav="Settings">Settings</button>
+          </div>
+          <hr class="menu-sep" />
+          <div class="menu-group" aria-label="Account">
+            <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
+            <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
+          </div>
+        </div>
+      </header>
 
-
-      <!-- Content panel -->
-      <div class="panel">
+      <!-- Content card -->
+      <section class="panel" id="contentPanel">
         <div class="empty">
           <p class="empty__title">Welcome</p>
           <p class="empty__text">Choose a section on the left to get started.</p>
         </div>
-      </div>
+      </section>
     </main>
   </div>
 
