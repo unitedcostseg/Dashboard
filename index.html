@@ -29,25 +29,31 @@
     <!-- Main column -->
     <main class="main">
       <div class="topbar">
-        <h1 class="topbar__title" id="sectionTitle">Home</h1>
+  <h1 class="topbar__title" id="sectionTitle">Home</h1>
 
-        <!-- Desktop actions -->
-        <div class="topbar__actions" id="topbarActions">
-          <button class="icon-btn" id="notifyBtn">Notifications</button>
-          <button class="link-btn" id="logoutBtn">Logout</button>
-        </div>
+  <!-- Desktop actions removed; we use only the hamburger -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 
-        <!-- Mobile hamburger -->
-        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+  <!-- Dropdown menu for ALL actions -->
+  <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+    <div class="menu-group" aria-label="Navigate">
+      <button class="menu-item" role="menuitem" data-nav="Home">Home</button>
+      <button class="menu-item" role="menuitem" data-nav="Estimates">Estimates</button>
+      <button class="menu-item" role="menuitem" data-nav="Projects">Projects</button>
+      <button class="menu-item" role="menuitem" data-nav="Delivered">Delivered</button>
+      <button class="menu-item" role="menuitem" data-nav="Tools">Tools</button>
+      <button class="menu-item" role="menuitem" data-nav="Settings">Settings</button>
+    </div>
+    <hr class="menu-sep">
+    <div class="menu-group" aria-label="Account">
+      <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
+      <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
+    </div>
+  </div>
+</div>
 
-        <!-- Mobile dropdown -->
-        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
-          <button class="menu-item" role="menuitem" id="mobileNotify">Notifications</button>
-          <button class="menu-item" role="menuitem" id="mobileLogout">Logout</button>
-        </div>
-      </div>
 
       <!-- Content panel -->
       <div class="panel">
