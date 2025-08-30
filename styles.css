@@ -142,12 +142,12 @@ body{
 .link-btn:hover{ color:var(--ink); text-decoration:underline }
 
 /* Topbar logo (hidden on desktop; shown on mobile) */
-.topbar-logo{
+/*.topbar-logo{
   display:none;
   height:28px;
   width:auto;
   margin-right:var(--space-4);
-}
+}*/
 
 /* Hamburger (hidden on desktop) */
 .hamburger{ display:none }
