@@ -206,6 +206,11 @@ body{
 }
 
 @media (max-width: 720px){
+  /* Hide sidebar on mobile */
+  .sidebar {
+    display: none;
+  }
+  
   /* Hide the logo image in the top bar */
   .topbar-logo { display: none; }
 
